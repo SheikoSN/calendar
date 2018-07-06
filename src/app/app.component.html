@@ -1,0 +1,12 @@
+<span *ngFor="let testCell of testCells">
+  <label> {{ testCell.title }} </label>
+  <input type="checkbox"
+         [checked]="testCell.selected"
+         (change)="onTestCellToggled(testCell.id)"
+  >
+</span>
+
+<scheduler-header></scheduler-header>
+<p-schedule [options]="scheduleOptions" #schedule></p-schedule>
+
+

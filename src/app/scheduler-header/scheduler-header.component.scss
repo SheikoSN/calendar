@@ -1,0 +1,78 @@
+//-----Variables TODO: Move it to variables separate file later
+  $sfFont: 'SF-UI-Text';
+  $grey: #53647B;
+  $sfRegularW: 400;
+  $sfLightW: 200;
+  $sfUltraThinW: 100;
+//-----
+
+.scheduler-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  font-family: $sfFont;
+  font-weight: $sfRegularW;
+  color: $grey;
+  .scheduler-header-left {
+    font-size: 24px;
+    word-spacing: 5px;
+    flex: 1;
+    .current-month {
+      margin: 0 20px 0 30px;
+    }
+    .divider {
+      font-weight: $sfUltraThinW;
+      font-size: 30px;
+    }
+    .current-week {
+      margin: 0 30px 0 20px;
+    }
+  }
+  .scheduler-header-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .prev-button, .next-button {
+      font-size: 13px;
+      font-weight: $sfLightW;
+      cursor: pointer;
+      height: 50px;
+      line-height: 50px;
+    }
+    .prev-button .button-text {
+      margin-right: 15px;
+    }
+    .next-button .button-text{
+      margin-left: 15px;
+    }
+
+    .current-date {
+      font-size: 28px;
+      font-weight: $sfRegularW;
+    }
+
+    .date-start, .date-end {
+
+    }
+
+    .date-start {
+     margin: 0 0 0 30px;
+    }
+
+    .date-end {
+      margin: 0 30px 0 0;
+    }
+
+    .date-divider {
+      margin: 0 25px;
+    }
+
+  }
+  .scheduler-header-right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+}
