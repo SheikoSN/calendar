@@ -10,7 +10,7 @@ export class ScheduleConfigService {
   showWeekends: boolean = true;
   private schedule: any;
   private selectedCellsSource = this.testCellsService.selectedTestCellsSource;
-  private defaultView: string = 'agendaWeek';
+  private defaultView: string = 'agendaDay';
   private currentViewSubject: ReplaySubject<any> = new ReplaySubject(1);
   private currentViewTypeSource: any = from(this.currentViewSubject).pipe(pluck('type'), distinctUntilChanged(), publish());
   private viewOptionsSource: Observable<any> = combineLatest(this.currentViewTypeSource, this.selectedCellsSource);
@@ -21,6 +21,7 @@ export class ScheduleConfigService {
       let calendarHeader = view.calendar.header.el[0];
       let currentDate = view.intervalStart;
       this.updateHeaderButtons(calendarHeader, currentDate, view.type);
+      console.log(' view.calendar',  view.calendar);
     });
     this.viewOptionsSource.subscribe(this.setViewOptions.bind(this));
   }
@@ -46,7 +47,6 @@ export class ScheduleConfigService {
       },
       viewRender: ((view, el) => {
         //TODO: Check for rerender need
-        console.log('view render with', view.type);
         this.currentViewSubject.next(view);
       }),
       views : {
@@ -67,6 +67,7 @@ export class ScheduleConfigService {
         agendaDay: {
           slotDuration: '00:15:00',
           slotLabelInterval: {hours: 1},
+          slotLabelFormat: 'hh:mm',
           slotEventOverlap: false
         },
         timelineDay: {

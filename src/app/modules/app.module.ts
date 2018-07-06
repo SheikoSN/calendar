@@ -4,17 +4,17 @@ import * as $ from 'jquery';
 import { ScheduleModule } from 'primeng/schedule';
 import { FormsModule } from '@angular/forms';
 
-import { ScheduleConfigService } from './schedule-config.service';
-import { DatesService } from './dates.service';
-import { DataService } from './data.service';
-import { TestCellsService } from './test-cells.service';
+import { ScheduleConfigService } from '../services/schedule-config.service';
+import { DatesService } from '../services/dates.service';
+import { DataService } from '../services/data.service';
+import { TestCellsService } from '../services/test-cells.service';
 
-import { AppComponent } from './app.component';
-import { SchedulerHeader } from './scheduler-header/scheduler-header.component'
+import { SchedulerHeader } from '../components/scheduler-header/scheduler-header.component'
+import { RootComponent } from '../components/root/root.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    RootComponent,
     SchedulerHeader
   ],
   imports: [
@@ -23,6 +23,6 @@ import { SchedulerHeader } from './scheduler-header/scheduler-header.component'
     FormsModule
   ],
   providers: [ScheduleConfigService, DatesService, DataService, TestCellsService],
-  bootstrap: [AppComponent]
+  bootstrap: [RootComponent]
 })
 export class AppModule { }
