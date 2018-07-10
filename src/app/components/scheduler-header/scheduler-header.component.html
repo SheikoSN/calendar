@@ -1,0 +1,48 @@
+<div class="scheduler-header">
+  <div class="scheduler-header-left">
+    <span class="current-month" *ngIf="currentMonth">{{ currentMonth }}</span>
+    <span class="divider">|</span>
+    <span class="current-week" *ngIf="weekNumber">W {{ weekNumber }}</span>
+  </div>
+  <div class="scheduler-header-center">
+    <span class="prev-button" (click)="prev()">
+      <span class="button-text">Previous</span>
+      <span class="icon-angle-left"></span>
+    </span>
+    <span class="current-date" *ngIf="currentViewType">
+      <ng-template [ngIf]="currentViewType === 'agendaWeek' || currentViewType === 'timelineWeek'">
+        <span class="date-start">{{ startTimeFormatted }}</span>
+        <span class="date-divider">-</span>
+        <span class="date-end">{{ endTimeFormatted }}</span>
+      </ng-template>
+      <ng-template [ngIf]="currentViewType === 'agendaDay'">
+        <span class="current-day">
+          <span class="icon-calendar"></span>
+          <span>{{ currentDay }}</span>
+        </span>
+      </ng-template>
+      <ng-template [ngIf]="currentViewType === 'month'">
+        <span class="current-day">
+          <span>{{ currentMonth }}</span>
+        </span>
+      </ng-template>
+    </span>
+    <span class="next-button" (click)="next()">
+      <span class="icon-angle-right"></span>
+      <span class="button-text">Next</span>
+    </span>
+  </div>
+  <div class="scheduler-header-right">
+    <div class="scheduler-header-button"
+         [ngClass]="{selected: (currentViewType === 'agendaDay' || currentViewType === 'timelineDay')}"
+         (click)="switchView('agendaDay')">Daily</div>
+
+    <div class="scheduler-header-button selected"
+         [ngClass]="{selected: (currentViewType === 'agendaWeek' || currentViewType === 'timelineWeek')}"
+         (click)="switchView('agendaWeek')">Weekly</div>
+
+    <div class="scheduler-header-button"
+         [ngClass]="{selected: currentViewType === 'month'}"
+         (click)="switchView('month')">Monthly</div>
+  </div>
+</div>
