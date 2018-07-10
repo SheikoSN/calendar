@@ -40,8 +40,10 @@ export class ScheduleConfigService {
         const {intervalStart, intervalEnd} = view;
         if(view.type == 'timelineWeek') {
           this.removeDayEndLabels(view.timeHeadEl);
-          this.setNowIndicator(view);
           this.highlightCurrentDay(view);
+        }
+        if(view.type == 'timelineWeek' || view.type == 'agendaDay' || view.type == 'timelineDay') {
+          this.setNowIndicator(view);
         }
         if(view.timeGrid && view.timeGrid.slatEls) {
           view.timeGrid.slatEls.map((i, elem) => {
@@ -251,12 +253,14 @@ export class ScheduleConfigService {
   removeDayEndLabels($header) {
     let elem = $header[0];
     let headers = elem.querySelectorAll('.fc-chrono th');
-    headers.forEach((e) => {
-      let time = e.dataset.date.split('T')[1];
-      if(time === '00:00:00') {
-        e.querySelector('.fc-cell-text').remove()
-      }
-    });
+    if(headers) {
+      headers.forEach((e) => {
+        let time = e.dataset.date.split('T')[1];
+        if(time === '00:00:00') {
+          e.querySelector('.fc-cell-text').remove()
+        }
+      });
+    }
   }
 
   setNextView(viewType: string) {
