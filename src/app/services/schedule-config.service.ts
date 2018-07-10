@@ -43,6 +43,19 @@ export class ScheduleConfigService {
           this.setNowIndicator(view);
           this.highlightCurrentDay(view);
         }
+        if(view.timeGrid && view.timeGrid.slatEls) {
+          view.timeGrid.slatEls.map((i, elem) => {
+            if (document.querySelector('.fc-agendaDay-view') && /\w+:\w/.test(elem.innerText)) {
+              elem.querySelector('.fc-time span').innerHTML = elem.innerText.replace(/\w+:/, '');
+            }
+          });
+        }
+        if(view.type === 'timelineDay') {
+          const elem = Array.from(document.querySelectorAll('.ui-widget-header .fc-cell-content .fc-cell-text'));
+          elem.forEach((element:any) => {
+            element.innerHTML = element.innerHTML.replace(/\w+:/, '')
+          });
+        }
         this.currentDateSource.next({intervalStart, intervalEnd})
       }),
       views : {
@@ -63,13 +76,21 @@ export class ScheduleConfigService {
         },
         agendaDay: {
           slotDuration: '00:15:00',
-          slotLabelInterval: {minutes: 15},
+          slotLabelInterval: { minutes: 15},
+          slotLabelFormat: 'HH(:mm)',
           slotEventOverlap: false,
-          slotLabelFormat: 'hh:mm',
+          minTime: '07:00:00',
+          maxTime: '20:00:00',
         },
         timelineDay: {
           type: 'timeline',
-          slotDuration: '00:15'
+          slotLabelInterval: { minutes: 15},
+          slotDuration: '00:15',
+          slotLabelFormat: 'HH(:mm)',
+          minTime: '07:00:00',
+          maxTime: '20:00:00',
+          resourceGroupField: 'category',
+          resourceAreaWidth: '140px',
         },
         timelineWeek: {
           slotDuration: '00:15',
@@ -82,7 +103,6 @@ export class ScheduleConfigService {
             'dddd, D', // top level of text
             'hh'        // lower level of text
           ],
-          nowIndicator: true,
           scrollTime: '00:00:00'
         },
       },
@@ -102,20 +122,6 @@ export class ScheduleConfigService {
         }
         //console.log('d', c);
       },
-      resourceRender: (resourceObj, labelTds, bodyTds) => {
-        // let currentView = this.defaultView;
-        // if(this.schedule) {
-        //   currentView = this.schedule.fullCalendar('getView').type;
-        // }
-        // if(currentView == 'timelineWeek') {
-        //   let elem = labelTds[0];
-        //   if(elem) {
-        //     //elem.querySelector('.testBox').remove();
-        //   }
-        //    console.log('bodyTds', bodyTds);
-        // }
-      },
-
       resources: (cb) => {
         cb([]);
         this.testCellsService.selectedTestCellsSource.subscribe((selectedCells) => {
