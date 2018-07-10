@@ -4,10 +4,14 @@ import { map } from 'rxjs/operators';
 export class TestCellsService {
    testCellsSubject: BehaviorSubject<any[]> = new BehaviorSubject(
     [
-      { id: 'a', title: 'Test Cell A', selected: false },
-      { id: 'b', title: 'Test Cell B', selected: false },
-      { id: 'c', title: 'Test Cell C', selected: true },
-      { id: 'd', title: 'Test Cell D', selected: true },
+      { id: 'a', building: 'Test Cell A', title: 'Test Cell A', selected: true },
+      { id: 'b', building: 'Test Cell A', title: 'Test Cell B', selected: true },
+      { id: 'c', building: 'Test Cell A', title: 'Test Cell C', selected: true },
+      { id: 'd', building: 'Test Cell A', title: 'Test Cell D', selected: true },
+      { id: '1', building: 'Test Cell B', title: '1', selected: true },
+      { id: '2', building: 'Test Cell B', title: '2', selected: true },
+      { id: '3', building: 'Test Cell B', title: '3', selected: true },
+      { id: '4', building: 'Test Cell B', title: '4', selected: true },
     ]
   );
   //TODO: Add models for all

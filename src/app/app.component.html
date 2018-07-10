@@ -8,5 +8,32 @@
 
 <scheduler-header></scheduler-header>
 <p-schedule [options]="scheduleOptions" #schedule></p-schedule>
+<div class="table-signs">
+  <div class="col-sign">
+    <div class="table-sign planned-sign"></div>
+    <span>Planned</span></div>
+  <div class="col-sign">
+    <div class="table-sign finished-sign"></div>
+    <span>Finished</span>
+  </div>
+  <div class="col-sign">
+    <div class="table-sign pending-sign"></div>
+    <span>Pending</span>
+  </div>
+  <div class="col-sign">
+    <div class="table-sign update-sign"></div>
+    <span>Update</span>
+  </div>
+  <div class="col-sign">
+    <fa name="exclamation-triangle" class="exclamation-triangle"></fa>
+    <span>Tasks intersect in time</span>
+  </div>
+  <div class="col-sign">
+    <div class="table-sign stripes-sign"></div>
+    <span>Drafts</span></div>
+</div>
+
+
+
 
 

@@ -10,11 +10,13 @@ export class ScheduleConfigService {
   showWeekends: boolean = true;
   private schedule: any;
   private selectedCellsSource = this.testCellsService.selectedTestCellsSource;
-  private defaultView: string = 'agendaWeek';
+  private defaultView: string = 'agendaDay';
   private currentViewSubject: ReplaySubject<any> = new ReplaySubject(1);
   private currentViewTypeSource: any = from(this.currentViewSubject).pipe(pluck('type'), distinctUntilChanged(), publish());
   private viewOptionsSource: Observable<any> = combineLatest(this.currentViewTypeSource, this.selectedCellsSource);
   private calendarRendered: boolean = false;
+  private observer = new MutationObserver(this.testFunction);
+  private config = { attributes: true, childList: true, subtree: true };
 
   constructor(private datesService: DatesService, private testCellsService: TestCellsService) {
     this.currentViewSubject.subscribe((view) => {
@@ -31,6 +33,9 @@ export class ScheduleConfigService {
       defaultView: this.defaultView,
       allDaySlot: false,
       eventStartEditable: true,
+      nowIndicator: true,
+      now: '2017-02-01T15:25:00',
+      resourceGroupField: 'building',
       header: {
         left: 'prev',
         right: 'next agendaWeek month agendaDay',
@@ -46,8 +51,21 @@ export class ScheduleConfigService {
       },
       viewRender: ((view, el) => {
         //TODO: Check for rerender need
-        console.log('view render with', view.type);
         this.currentViewSubject.next(view);
+        console.log(view);
+        if(view.timeGrid && view.timeGrid.slatEls) {
+          view.timeGrid.slatEls.map((i, elem) => {
+            if (document.querySelector('.fc-agendaDay-view') && /\w+:\w/.test(elem.innerText)) {
+              elem.querySelector('.fc-time span').innerHTML = elem.innerText.replace(/\w+:/, '');
+            }
+          });
+        }
+        if(view.type === 'timelineDay') {
+          const elem = Array.from(document.querySelectorAll('.ui-widget-header .fc-cell-content .fc-cell-text'));
+          elem.forEach((element) => {
+            element.innerHTML = element.innerHTML.replace(/\w+:/, '')
+          });
+        }
       }),
       views : {
         month: {
@@ -66,13 +84,19 @@ export class ScheduleConfigService {
         },
         agendaDay: {
           slotDuration: '00:15:00',
-          slotLabelInterval: {hours: 1},
-          slotEventOverlap: false
+          slotLabelInterval: { minutes: 15},
+          slotLabelFormat: 'HH(:mm)',
+          slotEventOverlap: false,
+          minTime: '07:00:00',
+          maxTime: '20:00:00',
         },
         timelineDay: {
           type: 'timeline',
-
-          slotDuration: '00:15'
+          slotLabelInterval: { minutes: 15},
+          slotDuration: '00:15',
+          slotLabelFormat: 'HH(:mm)',
+          minTime: '07:00:00',
+          maxTime: '20:00:00',
         },
         timelineWeek: {
           slotDuration: '00:15',
@@ -98,7 +122,6 @@ export class ScheduleConfigService {
   setViewOptions(data) {
     const viewType = data[0];
     const selectedCells = data[1];
-   console.log('set view options');
     if (viewType == 'month') {
       this.setOptions({groupByDateAndResource: false});
     }
@@ -109,7 +132,6 @@ export class ScheduleConfigService {
         if(!this.schedule.fullCalendar('option', 'groupByDateAndResource')){
           this.setOptions({groupByResource: true});
         }
-      console.log('here1', viewType);
     }
     else if(selectedCells.length >= 4) {
       if(viewType == 'agendaDay') this.schedule.fullCalendar('changeView', 'timelineDay');
@@ -118,7 +140,6 @@ export class ScheduleConfigService {
       if(this.schedule.fullCalendar('option', 'groupByDateAndResource')){
         this.setOptions({groupByResource: false});
       }
-      console.log('here2');
     }
     else {
       if(this.schedule.fullCalendar('option', 'groupByDateAndResource')){

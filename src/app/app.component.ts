@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, EventEmitter, ViewEncapsulation  } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { Schedule } from 'primeng/schedule';
 import { ScheduleConfigService } from "./schedule-config.service";
@@ -8,7 +8,8 @@ import { TestCellsService } from "./test-cells.service";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit, AfterViewInit{
   title = 'app';

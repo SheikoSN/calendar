@@ -11,6 +11,7 @@ import { TestCellsService } from './test-cells.service';
 
 import { AppComponent } from './app.component';
 import { SchedulerHeader } from './scheduler-header/scheduler-header.component'
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SchedulerHeader } from './scheduler-header/scheduler-header.component'
   imports: [
     BrowserModule,
     ScheduleModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule,
   ],
   providers: [ScheduleConfigService, DatesService, DataService, TestCellsService],
   bootstrap: [AppComponent]
