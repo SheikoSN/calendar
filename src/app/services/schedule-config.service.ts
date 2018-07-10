@@ -18,13 +18,6 @@ export class ScheduleConfigService {
 
   constructor(private datesService: DatesService, private testCellsService: TestCellsService) {
     this.currentViewTypeSource.next(this.defaultView);
-
-    // this.currentDateSource.next(
-    //   {
-    //     intervalStart: this.datesService.defaultDate,
-    //     intervalEnd: this.datesService.defaultDate
-    //   }
-    // );
   }
 
   getScheduleConfig() {
@@ -34,7 +27,6 @@ export class ScheduleConfigService {
       allDaySlot : false,
       eventStartEditable: true,
       nowIndicator: true,
-      //now: '2017-02-01T15:25:00',
       header: false,
       buttonText: {
         today:    'today',
@@ -205,7 +197,6 @@ export class ScheduleConfigService {
         if(container) {
           container.innerText = time.format('hh:mm');
         }
-
       }, 100)
     }.bind(view);
     view.renderNowIndicator = wrapper;

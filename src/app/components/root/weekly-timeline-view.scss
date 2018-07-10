@@ -76,7 +76,9 @@
           }
         }
       }
+
     }
+
     //.ui-widget-header
   }
   .fc-content {
@@ -85,12 +87,12 @@
         background-color: $lightGrey;
         //border-color: $lightGrey;
         div {
-          height: 30px;
+          height: 32px;
         }
       }
       td.ui-widget-content {
         div {
-          height: 35px;
+          height: 37px;
         }
       }
     }
@@ -122,6 +124,23 @@
       border-top: 1px solid $darkerGrey;
       border-bottom: 1px solid $darkerGrey;
       background: $lightGrey;
+    }
+    .fc-scroller::-webkit-scrollbar-track
+    {
+      border-radius: 3px;
+      background-color: #fff;
+    }
+
+    .fc-scroller::-webkit-scrollbar
+    {
+      width: 12px;
+      background-color: #fff;
+    }
+
+    .fc-scroller::-webkit-scrollbar-thumb
+    {
+      border-radius: 6px;
+      background-color: $darkerGrey;
     }
   }
   .fc-resource-area {
