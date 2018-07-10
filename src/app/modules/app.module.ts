@@ -3,13 +3,12 @@ import { NgModule } from '@angular/core';
 import * as $ from 'jquery';
 import { ScheduleModule } from 'primeng/schedule';
 import { FormsModule } from '@angular/forms';
-
 import { ScheduleConfigService } from '../services/schedule-config.service';
 import { DatesService } from '../services/dates.service';
 import { DataService } from '../services/data.service';
 import { TestCellsService } from '../services/test-cells.service';
 
-import { SchedulerHeader } from '../components/scheduler-header/scheduler-header.component'
+import { SchedulerHeader } from '../components/scheduler-header/scheduler-header.component';
 import { RootComponent } from '../components/root/root.component';
 
 @NgModule({

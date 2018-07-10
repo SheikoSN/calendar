@@ -1,0 +1,163 @@
+@import '../../../common/styles/variables.scss';
+
+.fc-timelineWeek-view {
+  .fc-divider.fc-col-resizer {
+    border: 0;
+    background-color: $normalBlue;
+  }
+  .fc-head {
+    .fc-now-indicator-arrow {
+      top: 60px;
+      margin: 0 0 0 -20px;
+      border: 0;
+      display: block;
+      width: 40px;
+      height: 15px;
+      background: $normalBlue;
+      border-radius: 3px;
+      color: #fff;
+      font-family: $sfFont;
+      font-size: 12px;
+      text-align: center;
+      line-height: 15px;
+      font-weight: $sfBoldW;
+    }
+    .fc-resource-area {
+      .ui-widget-header {
+        .fc-cell-content {
+          //Removing "Resources title"
+          display: none;
+        }
+      }
+    }
+    .fc-time-area {
+      border-color: $darkerGrey;
+      border-top: 0;
+      .fc-cell-text.fc-following {
+        font-family: $sfFont !important;
+        font-size: 22px !important;
+        font-weight: $sfMediumW !important;
+      }
+      table {
+        tr:first-of-type {
+          height: 30px;
+          // Each day headers
+          th {
+            border: 0;
+            position: relative;
+            &:after {
+              position: absolute;
+              top: 0;
+              right: -1px;
+              content: "";
+              height: 75px;
+              width: 3px;
+              background: $normalBlue;
+            }
+            & .fc-cell-text {
+              color: $darkerGrey;
+            }
+            &.current-day .fc-cell-text{
+              color: $normalBlue;
+            }
+          }
+        }
+        .fc-chrono {
+          height: 45px;
+          th.ui-widget-header {
+            border: none;
+            font-family: $sfFont;
+            font-size: 14px;
+            color: $darkBlue;
+            font-weight: $sfRegularW;
+            div {
+              margin-left: -14px;
+            }
+          }
+        }
+      }
+    }
+    //.ui-widget-header
+  }
+  .fc-content {
+    .fc-rows {
+      td.fc-divider {
+        background-color: $lightGrey;
+        //border-color: $lightGrey;
+        div {
+          height: 30px;
+        }
+      }
+      td.ui-widget-content {
+        div {
+          height: 35px;
+        }
+      }
+    }
+  }
+  .fc-body {
+    //tr[data-resource-id] td.ui-widget-content{
+    //  border-color: $lightGrey;
+    //}
+    td {
+      border-color: $darkerGrey;
+
+    }
+    .fc-slats {
+      td.fc-minor {
+        border: 0;
+      }
+      td.day-end-divider {
+        border-right: 3px solid $normalBlue;
+      }
+    }
+    .fc-now-indicator.fc-now-indicator-line {
+      border-color: $normalBlue;
+    }
+    .fc-content {
+
+    }
+    .fc-resource-area {
+      border-left: 1px solid $darkerGrey;
+      border-top: 1px solid $darkerGrey;
+      border-bottom: 1px solid $darkerGrey;
+      background: $lightGrey;
+    }
+  }
+  .fc-resource-area {
+    border: none;
+    .fc-cell-content {
+      display: flex;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .ui-widget-content {
+      background: #fff;
+      .fc-icon, .fc-expander-space {
+        display: none;
+      }
+      .fc-cell-content {
+        padding-left: 15px;
+      }
+    }
+    .fc-cell-text {
+      font-family: $sfFont;
+      font-weight: $sfLightW;
+      font-size: 14px;
+      color: $darkBlue;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+    & .fc-divider {
+      padding-left: 10px;
+      .fc-icon-down-triangle:after,.fc-icon-right-triangle:after {
+        font-size: 85%;
+      }
+      .fc-cell-text {
+        font-weight: $sfRegularW;
+      }
+    }
+  }
+}
