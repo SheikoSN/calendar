@@ -15,8 +15,6 @@ export class ScheduleConfigService {
   private currentViewTypeSource: any = from(this.currentViewSubject).pipe(pluck('type'), distinctUntilChanged(), publish());
   private viewOptionsSource: Observable<any> = combineLatest(this.currentViewTypeSource, this.selectedCellsSource);
   private calendarRendered: boolean = false;
-  private observer = new MutationObserver(this.testFunction);
-  private config = { attributes: true, childList: true, subtree: true };
 
   constructor(private datesService: DatesService, private testCellsService: TestCellsService) {
     this.currentViewSubject.subscribe((view) => {
