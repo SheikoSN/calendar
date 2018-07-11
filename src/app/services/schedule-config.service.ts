@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { DatesService } from './dates.service';
 import { TestCellsService } from "./test-cells.service";
 import { Observable, Subject, from, combineLatest, BehaviorSubject, ReplaySubject } from "rxjs";
-import { pluck, distinctUntilChanged, publish, map } from "rxjs/operators";
 import * as moment from 'moment';
 
 @Injectable()
@@ -75,6 +74,7 @@ export class ScheduleConfigService {
           themeSystem: 'standard',
           groupByDateAndResource: false,
           groupByResource: false,
+          columnHeaderFormat: 'dddd',
           eventDataTransform: (data) => {
             return data;
           }

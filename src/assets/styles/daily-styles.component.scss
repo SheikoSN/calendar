@@ -1,4 +1,4 @@
-@import '../common/styles/variables';
+@import '../../common/styles/variables';
 
 .fc-agendaDay-view {
   .ui-widget-content {
@@ -11,6 +11,23 @@
     font-family: $sfFont;
     font-weight: $sfRegularW;
     color: #3D495A;
+  }
+  .fc-scroller::-webkit-scrollbar-track
+  {
+    border-radius: 3px;
+    background-color: #fff;
+  }
+
+  .fc-scroller::-webkit-scrollbar
+  {
+    width: 12px;
+    background-color: #fff;
+  }
+
+  .fc-scroller::-webkit-scrollbar-thumb
+  {
+    border-radius: 6px;
+    background-color: $darkerGrey;
   }
 }
 
@@ -53,9 +70,6 @@
   }
 
   .fc-body {
-    .fc-time-grid-container {
-      border-bottom: solid #DFE3E9 1px;
-    }
     .fc-slats {
       table {
         border: solid 1px;
@@ -72,10 +86,6 @@
       }
     }
   }
-  .fc-timeline .fc-body .fc-divider.fc-col-resizer{
-    border:none;
-  }
-
 }
 
 .fc-agendaDay-view.fc-timeline, .fc-timelineDay-view.fc-timeline .fc-head {
@@ -133,6 +143,7 @@
     color: #A8B0BC;
     text-align: center;
     border-color: transparent;
+    font-family: SF-UI-Text;
   }
 
   .ui-widget-content {
@@ -250,8 +261,6 @@
   }
 }
 
-
-
 .fc-timelineDay-view {
   .ui-widget-header {
     .fc-cell-content {
@@ -322,6 +331,30 @@
         }
       }
     }
+  }
+
+  .fc-scroller::-webkit-scrollbar-track
+  {
+    border-radius: 3px;
+    background-color: #fff;
+  }
+
+  .fc-scroller::-webkit-scrollbar
+  {
+    width: 12px;
+    background-color: #fff;
+  }
+
+  .fc-scroller::-webkit-scrollbar-thumb
+  {
+    border-radius: 6px;
+    background-color: $darkerGrey;
+  }
+
+
+  .fc-body .fc-divider.fc-col-resizer{
+    border-color: #C1C9D5;
+    background: #C1C9D5;
   }
 }
 
