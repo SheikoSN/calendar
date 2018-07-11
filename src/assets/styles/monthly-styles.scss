@@ -1,0 +1,181 @@
+@import '../../common/styles/variables.scss';
+
+.fc-month-view {
+  .fc-head-container {
+    border-color: #DFE3E9;
+  }
+
+  .fc-day-header {
+    height: 57px;
+    vertical-align: middle;
+    border-color: $lighterGrey;
+    font-family: $sfFont;
+    font-size: 22px;
+    font-weight: $sfSemiBoldW;
+    color: $lighterBlue;
+  }
+
+  .fc-day-number {
+    font-size: 24px;
+    font-family: $sfFont;
+    font-weight: $sfLightW;
+  }
+
+  .fc-body {
+    .fc-other-month {
+      border-color: $lighterGrey;
+      border-right: none;
+    }
+
+    .fc-future:not(.fc-other-month), .fc-today {
+      border-color: $grey;
+    }
+
+    .fc-today:not(.fc-day-top) {
+      border: solid $lighterBlue 3px;
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        border-top: solid $lighterBlue 3px;
+        position: absolute;
+        bottom:0;
+      }
+    }
+
+    .fc-future:not(.fc-other-month) {
+      &.fc-day-top {
+        &:after {
+          display: none;
+        }
+      }
+    }
+    .fc-day-top{
+      padding-right: 15px;
+      padding-top: 15px;
+    }
+    .fc-week:first-child .fc-day:not(.fc-other-month) {
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        border-top: solid $grey 1px;
+      }
+
+      border-top: none;
+    }
+
+    .fc-week:first-child, .fc-week:last-child {
+      .fc-other-month:last-child {
+        border-right: none;
+      }
+    }
+  }
+  .fc-past:not(.fc-other-month) {
+    background: $lightGreyBlue;
+  }
+
+  .fc-future.fc-other-month {
+    background: $lightGreyFuture;
+    border-color: $darkGrey;
+  }
+
+  td.ui-widget-content:not(.fc-day), td.ui-widget-header:not(.fc-day) {
+    border-left-color: transparent;
+    border-right-color: transparent;
+  }
+
+  td.ui-widget-content:not(.fc-day) {
+    border-bottom-color: transparent;
+  }
+
+
+  .fc-day.fc-other-month:first-child {
+    &:before {
+      content: '';
+      border-left: solid $lighterGrey 1px;
+      height: 100%;
+      display: block;
+    }
+  }
+  .fc-day-header:first-child {
+    &:before {
+      content: '';
+      border-left: solid $lighterGrey 1px;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+  }
+  .fc-day-header:last-child {
+    &:before {
+      content: '';
+      border-left: solid $lighterGrey 1px;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .fc-day.fc-mon:not(.fc-other-month) {
+    &:before {
+      content: '';
+      border-left: solid $grey 1px;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left:0;
+    }
+  }
+  .fc-day.fc-sun:not(.fc-other-month) {
+    &:after {
+      content: '';
+      border-left: solid $grey 1px;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      right:0;
+    }
+  }
+
+  .fc-day.fc-sun.fc-other-month {
+    &:before {
+      content: '';
+      border-left: solid $lighterGrey 1px;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      right:0;
+    }
+  }
+
+  .fc-week:nth-last-child(1) {
+    .fc-day:not(.fc-other-month) {
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        position: absolute;
+        border-bottom: solid $grey 1px;
+        bottom: 0;
+      }
+    }
+    .fc-day.fc-other-month {
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        position: absolute;
+        border-bottom: solid $lighterGrey 1px;
+        bottom: 0;
+      }
+    }
+
+  }
+}
