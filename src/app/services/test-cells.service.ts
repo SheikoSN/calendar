@@ -7,7 +7,7 @@ export class TestCellsService {
       { id: 'a', category: 'category 1 and yet and more', title: 'Test Cell A', selected: true },
       { id: 'b', category: 'category 1 and yet and more', title: 'Test Cell B', selected: true },
       { id: 'c', category: 'category 2 and yet and more', title: 'Test Cell C', selected: true },
-      { id: 'd', category: 'category 2 and yet and more', title: 'Test Cell D and more and more', selected: true },
+      { id: 'd', category: 'category 2 and yet and more', title: 'Test Cell D and more and more', selected: false },
     ]
   );
   //TODO: Add models for all

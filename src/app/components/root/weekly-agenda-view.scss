@@ -1,0 +1,167 @@
+@import '../../../common/styles/variables.scss';
+
+.fc-agendaWeek-view {
+  .fc-head {
+    td.fc-head-container {
+      border-color: transparent;
+      table {
+        //border-collapse: separate;
+        border-bottom: 1px solid $lightGrey;
+      }
+      div.ui-widget-header {
+        //Resources cells
+        tr:first-of-type {
+          //Time axis header
+          th.fc-axis {
+            border-color: transparent;
+
+          }
+          //Resources headers
+          th.fc-resource-cell {
+            height: 45px;
+            border-color: transparent;
+            color: $darkBlue;
+            font-family: $sfFont;
+            font-weight: $sfRegularW;
+            font-size: 18px;
+            position: relative;
+            .resource-category {
+              font-size: 14px;
+              opacity: .5;
+            }
+          }
+
+        }
+        //Days cells
+        tr:nth-child(2) {
+          //Days headers
+          .fc-axis {
+            border-bottom: 1px solid transparent;
+          }
+          .fc-day-header {
+            height: 30px;
+            border-bottom: 1px solid $lightGrey;
+            position: relative;
+            &.fc-sun:after {
+              position: absolute;
+              background-color: $normalBlue;
+              height: calc(100% + 50px);
+              width: 3px;
+              right: -1px;
+              top: -50px;
+              content: "";
+              display: block;
+            }
+            span {
+              color: $lighterBlue;
+              opacity: .5;
+              font-family: $sfFont;
+              font-size: 16px;
+              font-weight: $sfMediumW;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fc-body {
+    //Columns
+    .ui-widget-content:first-of-type {
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+      border-right-color: $grey;
+    }
+    .fc-bg {
+      //Time column
+      .fc-axis {
+
+      }
+      //day column
+      .fc-day {
+        border-left-color: $grey;
+        border-right-color: $grey;
+        position: relative;
+        &.week-last-day {
+          &:after {
+            position: absolute;
+            background-color: $normalBlue;
+            top: -75px;
+            height: calc(100% + 75px);
+            width: 3px;
+            right: -1px;
+            content: "";
+            display: block;
+          }
+        }
+      }
+    }
+
+    //Rows
+    .fc-slats {
+      //Time col
+      .fc-axis.fc-time {
+        border-color: transparent;
+        text-align: center;
+        font-family: $sfFont;
+        font-weight: $sfRegularW;
+        font-size: 14px;
+        color: $darkBlue;
+        border-right-color: $grey;
+        position: relative;
+        span {
+          position: absolute;
+          top: -3px;
+          display: block;
+          width: 72px;
+        }
+      }
+
+      //Small time
+      tr.minor-time {
+        .fc-axis.fc-time {
+          span {
+            font-size: 10px;
+            color: $grey;
+          }
+        }
+        td:nth-child(2) {
+          border-color: transparent;
+        }
+        //&:last-of-type {
+        //  td {
+        //    border-bottom: 1px solid red;
+        //  }
+        //}
+      }
+      //Content col
+      tr td:nth-child(2) {
+        height: 15px;
+
+      }
+      tr:not(.minor-time){
+        td:nth-child(2){
+          border-top-color: $lightGrey;
+        }
+      }
+    }
+    .fc-now-indicator-arrow {
+      background: $lighterBlue;
+      width: 40px;
+      height: 15px;
+      line-height: 15px;
+      border: none;
+      text-align: center;
+      border-radius: 5px;
+      color: #fff;
+      font-family: $sfFont;
+      font-size: 12px;
+      font-weight: $sfBoldW;
+      left: 50px;
+    }
+    .fc-now-indicator-line {
+      border: 1px solid $lighterBlue;
+      background: $lighterBlue;
+    }
+  }
+}
