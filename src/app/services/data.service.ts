@@ -8,13 +8,13 @@ export class DataService {
 
   public dataSource: Observable<any> = new Observable((observer) => {
     this.dataSubject.subscribe((data) => {
-      observer.next(data)
-    })
+      observer.next(data);
+    });
   }).pipe(share());
 
   constructor() {
     setTimeout(() => {
-      this.dataSubject.next(mockData)
-    }, 5000)
+      this.dataSubject.next(mockData);
+    }, 5000);
   }
 }

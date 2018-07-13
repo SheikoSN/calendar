@@ -9,14 +9,14 @@ import { DatesService } from '../services/dates.service';
 import { DataService } from '../services/data.service';
 import { TestCellsService } from '../services/test-cells.service';
 
-import { SchedulerHeader } from '../components/scheduler-header/scheduler-header.component';
+import { SchedulerHeaderComponent } from '../components/scheduler-header/scheduler-header.component';
 import { RootComponent } from '../components/root/root.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
     RootComponent,
-    SchedulerHeader
+    SchedulerHeaderComponent,
   ],
   imports: [
     BrowserModule,

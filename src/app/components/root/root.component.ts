@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import {  Subscription } from 'rxjs';
 import { Schedule } from 'primeng/schedule';
-import { ScheduleConfigService } from "../../services/schedule-config.service";
-import { DataService } from "../../services/data.service";
-import { TestCellsService } from "../../services/test-cells.service";
+import { ScheduleConfigService } from '../../services/schedule-config.service';
+import { DataService } from '../../services/data.service';
+import { TestCellsService } from '../../services/test-cells.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ import { TestCellsService } from "../../services/test-cells.service";
   encapsulation: ViewEncapsulation.None
 })
 
-export class RootComponent implements OnInit, AfterViewInit{
+export class RootComponent implements OnInit, AfterViewInit {
   public scheduleOptions: any;
   public testCells: any[];
   private dataServiceSubscription: Subscription;
@@ -26,7 +26,7 @@ export class RootComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit() {
-    let { schedule } = this;
+    const { schedule } = this;
     this.scheduleOptions = this.scheduleConfigService.getScheduleConfig();
 
     this.dataServiceSubscription = this.dataService.dataSource.subscribe((data) => {
