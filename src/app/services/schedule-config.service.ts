@@ -188,8 +188,9 @@ export class ScheduleConfigService {
   };
 
   getViewOptions(type: string, isGrouped: boolean) {
-    if (type == 'month' && isGrouped) {
-      return {groupByDateAndResource: false};
+    if (type == 'month') {
+      console.log('resetting to false');
+      return {groupByResource: false};
     }else if ((type == 'agendaDay' || type == 'agendaWeek') && !isGrouped) {
       return {groupByResource: true};
     }else if((type == 'timelineDay' || type == 'timelineWeek') && isGrouped) {
