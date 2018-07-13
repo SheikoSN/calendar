@@ -1,6 +1,21 @@
 @import '../../common/styles/variables';
 
 .fc-agendaDay-view {
+
+  th.fc-resource-cell {
+    height: 45px;
+    border-color: transparent;
+    color: $darkBlue;
+    font-family: $sfFont;
+    font-weight: $sfRegularW;
+    font-size: 18px;
+    position: relative;
+    .resource-category {
+      font-size: 14px;
+      opacity: .5;
+    }
+  }
+
   .ui-widget-content {
     .fc-day {
       border-right: solid 1px #DFE3E9;

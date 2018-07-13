@@ -140,7 +140,7 @@ export class ScheduleConfigService {
         if(this.schedule) {
           view = this.schedule.fullCalendar('getView').type;
         }
-        if(view == 'agendaWeek') {
+        if(view == 'agendaWeek' || view == 'agendaDay') {
           let {category, title} = resourceObj;
           labelTds[0].innerHTML = `<div class="resource-name">${title}</div>
                                    <div class="resource-category">(${category})</div>`
