@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject, from, combineLatest, BehaviorSubject, ReplaySubject } from "rxjs";
 import { startWith, delay } from "rxjs/operators";
 import { ScheduleConfigService } from "../../services/schedule-config.service";
 
@@ -8,19 +7,20 @@ import { ScheduleConfigService } from "../../services/schedule-config.service";
   templateUrl: 'scheduler-header.component.html',
   styleUrls: ['./scheduler-header.component.scss']
 })
+
 export class SchedulerHeader implements OnInit{
 
-  private currentViewType: string;
-  public startTime: any = null;
-  public endTime: any = null;
-  public weekNumber: any = 0;
-  public currentMonth: any = "";
-  public currentDay: any = "";
+  public startTime: Date = null;
+  public endTime: Date = null;
+  public weekNumber: number = 0;
+  public currentMonth: string;
+  public currentDay: string = "";
   public startTimeFormatted: string = "";
   public endTimeFormatted: string = "";
+  public currentViewType: string;
 
   constructor(private scheduleConfigService: ScheduleConfigService) {
-    this.currentMonth = '';
+    this.currentMonth = "";
   }
 
   ngOnInit() {
@@ -32,7 +32,9 @@ export class SchedulerHeader implements OnInit{
     });
 
     scheduleConfigService.currentDateSource.pipe(startWith(null), delay(0)).subscribe((currDate) => {
-      if(!currDate) return;
+      if(!currDate) {
+        return;
+      }
 
       this.startTime = currDate.intervalStart;
       this.endTime = currDate.intervalEnd;
@@ -44,15 +46,15 @@ export class SchedulerHeader implements OnInit{
     })
   }
 
-  switchView(viewType: string) {
+  public switchView(viewType: string): void {
     this.scheduleConfigService.setNextView(viewType);
   }
 
-  next() {
+  public next(): void {
     this.scheduleConfigService.next();
   }
 
-  prev() {
+  public prev():void {
     this.scheduleConfigService.prev();
   }
 }

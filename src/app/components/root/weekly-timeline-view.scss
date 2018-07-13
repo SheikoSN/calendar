@@ -1,10 +1,12 @@
 @import '../../../common/styles/variables.scss';
 
 .fc-timelineWeek-view {
+
   .fc-divider.fc-col-resizer {
     border: 0;
     background-color: $normalBlue;
   }
+
   .fc-head {
     .fc-now-indicator-arrow {
       top: 60px;
@@ -22,6 +24,7 @@
       line-height: 15px;
       font-weight: $sfBoldW;
     }
+
     .fc-resource-area {
       .ui-widget-header {
         .fc-cell-content {
@@ -30,6 +33,7 @@
         }
       }
     }
+
     .fc-time-area {
       border-color: $darkerGrey;
       border-top: 0;
@@ -57,7 +61,7 @@
             & .fc-cell-text {
               color: $darkerGrey;
             }
-            &.current-day .fc-cell-text{
+            &.current-day .fc-cell-text {
               color: $normalBlue;
             }
           }
@@ -76,11 +80,9 @@
           }
         }
       }
-
     }
-
-    //.ui-widget-header
   }
+
   .fc-content {
     .fc-rows {
       td.fc-divider {
@@ -97,10 +99,8 @@
       }
     }
   }
+
   .fc-body {
-    //tr[data-resource-id] td.ui-widget-content{
-    //  border-color: $lightGrey;
-    //}
     td {
       border-color: $darkerGrey;
 
@@ -116,33 +116,28 @@
     .fc-now-indicator.fc-now-indicator-line {
       border-color: $normalBlue;
     }
-    .fc-content {
-
-    }
     .fc-resource-area {
       border-left: 1px solid $darkerGrey;
       border-top: 1px solid $darkerGrey;
       border-bottom: 1px solid $darkerGrey;
       background: $lightGrey;
     }
-    .fc-scroller::-webkit-scrollbar-track
-    {
+    .fc-scroller::-webkit-scrollbar-track {
       border-radius: 3px;
       background-color: #fff;
     }
 
-    .fc-scroller::-webkit-scrollbar
-    {
+    .fc-scroller::-webkit-scrollbar {
       width: 12px;
       background-color: #fff;
     }
 
-    .fc-scroller::-webkit-scrollbar-thumb
-    {
+    .fc-scroller::-webkit-scrollbar-thumb {
       border-radius: 6px;
       background-color: $darkerGrey;
     }
   }
+
   .fc-resource-area {
     border: none;
     .fc-cell-content {
@@ -171,7 +166,7 @@
     }
     & .fc-divider {
       padding-left: 10px;
-      .fc-icon-down-triangle:after,.fc-icon-right-triangle:after {
+      .fc-icon-down-triangle:after, .fc-icon-right-triangle:after {
         font-size: 85%;
       }
       .fc-cell-text {

@@ -22,6 +22,7 @@
   }
 
   .fc-body {
+
     .fc-other-month {
       border-color: $lighterGrey;
       border-right: none;
@@ -40,7 +41,7 @@
         width: 100%;
         border-top: solid $lighterBlue 3px;
         position: absolute;
-        bottom:0;
+        bottom: 0;
       }
     }
 
@@ -51,10 +52,12 @@
         }
       }
     }
-    .fc-day-top{
+
+    .fc-day-top {
       padding-right: 15px;
       padding-top: 15px;
     }
+
     .fc-week:first-child .fc-day:not(.fc-other-month) {
       &:before {
         content: '';
@@ -72,6 +75,7 @@
       }
     }
   }
+
   .fc-past:not(.fc-other-month) {
     background: $lightGreyBlue;
   }
@@ -90,7 +94,6 @@
     border-bottom-color: transparent;
   }
 
-
   .fc-day.fc-other-month:first-child {
     &:before {
       content: '';
@@ -99,6 +102,7 @@
       display: block;
     }
   }
+
   .fc-day-header:first-child {
     &:before {
       content: '';
@@ -109,6 +113,7 @@
       top: 0;
     }
   }
+
   .fc-day-header:last-child {
     &:before {
       content: '';
@@ -120,6 +125,7 @@
       right: 0;
     }
   }
+
   .fc-day.fc-mon:not(.fc-other-month) {
     &:before {
       content: '';
@@ -128,9 +134,10 @@
       display: block;
       position: absolute;
       top: 0;
-      left:0;
+      left: 0;
     }
   }
+
   .fc-day.fc-sun:not(.fc-other-month) {
     &:after {
       content: '';
@@ -139,7 +146,7 @@
       display: block;
       position: absolute;
       top: 0;
-      right:0;
+      right: 0;
     }
   }
 
@@ -151,7 +158,7 @@
       display: block;
       position: absolute;
       top: 0;
-      right:0;
+      right: 0;
     }
   }
 
@@ -166,6 +173,7 @@
         bottom: 0;
       }
     }
+
     .fc-day.fc-other-month {
       &:after {
         content: '';
@@ -176,6 +184,5 @@
         bottom: 0;
       }
     }
-
   }
 }

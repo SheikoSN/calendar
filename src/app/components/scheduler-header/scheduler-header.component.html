@@ -4,11 +4,13 @@
     <span class="divider">|</span>
     <span class="current-week" *ngIf="weekNumber">W {{ weekNumber }}</span>
   </div>
+
   <div class="scheduler-header-center">
     <span class="prev-button" (click)="prev()">
       <span class="button-text">Previous</span>
       <span class="icon-angle-left"></span>
     </span>
+
     <span class="current-date" *ngIf="currentViewType">
       <ng-template [ngIf]="currentViewType === 'agendaWeek' || currentViewType === 'timelineWeek'">
         <span class="date-start">{{ startTimeFormatted }}</span>
@@ -27,22 +29,27 @@
         </span>
       </ng-template>
     </span>
+
     <span class="next-button" (click)="next()">
       <span class="icon-angle-right"></span>
       <span class="button-text">Next</span>
     </span>
   </div>
+
   <div class="scheduler-header-right">
     <div class="scheduler-header-button"
          [ngClass]="{selected: (currentViewType === 'agendaDay' || currentViewType === 'timelineDay')}"
-         (click)="switchView('agendaDay')">Daily</div>
+         (click)="switchView('agendaDay')">Daily
+    </div>
 
     <div class="scheduler-header-button selected"
          [ngClass]="{selected: (currentViewType === 'agendaWeek' || currentViewType === 'timelineWeek')}"
-         (click)="switchView('agendaWeek')">Weekly</div>
+         (click)="switchView('agendaWeek')">Weekly
+    </div>
 
     <div class="scheduler-header-button"
          [ngClass]="{selected: currentViewType === 'month'}"
-         (click)="switchView('month')">Monthly</div>
+         (click)="switchView('month')">Monthly
+    </div>
   </div>
 </div>

@@ -38,6 +38,7 @@
           .fc-axis {
             border-bottom: 1px solid transparent;
           }
+
           .fc-day-header {
             height: 30px;
             border-bottom: 1px solid $lightGrey;
@@ -52,6 +53,7 @@
               content: "";
               display: block;
             }
+
             span {
               color: $lighterBlue;
               opacity: .5;
@@ -72,11 +74,8 @@
       border-bottom-color: transparent;
       border-right-color: $grey;
     }
-    .fc-bg {
-      //Time column
-      .fc-axis {
 
-      }
+    .fc-bg {
       //day column
       .fc-day {
         border-left-color: $grey;
@@ -128,11 +127,6 @@
         td:nth-child(2) {
           border-color: transparent;
         }
-        //&:last-of-type {
-        //  td {
-        //    border-bottom: 1px solid red;
-        //  }
-        //}
       }
       //Content col
       tr td:nth-child(2) {
@@ -145,6 +139,7 @@
         }
       }
     }
+
     .fc-now-indicator-arrow {
       background: $lighterBlue;
       width: 40px;
@@ -159,6 +154,7 @@
       font-weight: $sfBoldW;
       left: 50px;
     }
+
     .fc-now-indicator-line {
       border: 1px solid $lighterBlue;
       background: $lighterBlue;

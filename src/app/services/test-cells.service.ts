@@ -1,8 +1,10 @@
-import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { TestCellInterface } from '../interfaces/test-cell.interface';
+import {Observable} from "rxjs/Observable";
 
 export class TestCellsService {
-   testCellsSubject: BehaviorSubject<any[]> = new BehaviorSubject(
+   public testCellsSubject: BehaviorSubject<TestCellInterface[]> = new BehaviorSubject(
     [
       { id: 'a', category: 'category 1 and yet and more', title: 'Test Cell A', selected: true },
       { id: 'b', category: 'category 1 and yet and more', title: 'Test Cell B', selected: true },
@@ -10,9 +12,8 @@ export class TestCellsService {
       { id: 'd', category: 'category 2 and yet and more', title: 'Test Cell D and more and more', selected: false },
     ]
   );
-  //TODO: Add models for all
 
-  selectedTestCellsSource = this.testCellsSubject.pipe(map((cells: any[]) =>  cells.filter((cell) => cell.selected)));
+  public selectedTestCellsSource = this.testCellsSubject.pipe(map((cells: any[]) =>  cells.filter((cell) => cell.selected)));
 
   toggleTestCell(id: string) {
     let currentValue = this.testCellsSubject.getValue();

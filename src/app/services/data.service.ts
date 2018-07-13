@@ -1,6 +1,6 @@
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
-import { delay, map, share } from 'rxjs/operators';
-import { mockData } from './mockData.js';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { share } from 'rxjs/operators';
+import { mockData } from './mockData';
 
 
 export class DataService {

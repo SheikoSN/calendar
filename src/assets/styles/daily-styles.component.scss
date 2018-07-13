@@ -10,6 +10,7 @@
     font-weight: $sfRegularW;
     font-size: 18px;
     position: relative;
+
     .resource-category {
       font-size: 14px;
       opacity: .5;
@@ -21,32 +22,32 @@
       border-right: solid 1px #DFE3E9;
     }
   }
+
   .fc-resource-cell {
     font-size: 18px;
     font-family: $sfFont;
     font-weight: $sfRegularW;
     color: #3D495A;
   }
-  .fc-scroller::-webkit-scrollbar-track
-  {
+
+  .fc-scroller::-webkit-scrollbar-track {
     border-radius: 3px;
     background-color: #fff;
   }
 
-  .fc-scroller::-webkit-scrollbar
-  {
+  .fc-scroller::-webkit-scrollbar {
     width: 12px;
     background-color: #fff;
   }
 
-  .fc-scroller::-webkit-scrollbar-thumb
-  {
+  .fc-scroller::-webkit-scrollbar-thumb {
     border-radius: 6px;
     background-color: $darkerGrey;
   }
 }
 
 .fc-agendaDay-view {
+
    .fc-time-grid .fc-now-indicator-arrow {
     left: 53px;
     width: 34px;
@@ -60,12 +61,6 @@
     transform: translate(0, -2px);
   }
 
-  .fc-content-skeleton {
-    .fc-axis {
-
-    }
-  }
-
   .fc-content-skeleton tbody tr td:nth-child(2) {
     .fc-content-col:nth-child(1) {
       .fc-now-indicator {
@@ -76,6 +71,7 @@
 }
 
 .fc-agendaDay-view, .fc-timelineDay-view {
+
   td.fc-today {
     border-style: none;
   }
@@ -94,6 +90,7 @@
       }
     }
   }
+
   .fc-time-grid {
     .fc-now-indicator-line {
       &:first-of-type {
@@ -104,12 +101,15 @@
 }
 
 .fc-agendaDay-view.fc-timeline, .fc-timelineDay-view.fc-timeline .fc-head {
+
   .ui-widget-header {
     border: none;
     height: 50px;
   }
+
   th {
     border-color: transparent;
+
     &:nth-child(4n+1) {
       .fc-cell-content {
         font-size: 14px;
@@ -117,17 +117,20 @@
       }
     }
   }
+
   .fc-cell-content {
     font-size: 10px;
     color: #A8B0BC;
     text-align: center;
     border: none;
   }
+
   .fc-body {
     .fc-resource-area {
       &.ui-widget-content {
         border-color: #DFE3E9;
       }
+
       .fc-rows {
         .ui-widget-content {
           border-color: transparent;
@@ -310,10 +313,11 @@
     }
   }
   .fc-body {
+    border: solid #C1C9D5 1px;
+
     .fc-time-area {
       &.ui-widget-content {
         border: none;
-
         .fc-rows{
           tr {
             border-top: solid #DFE3E9 1px;
@@ -325,7 +329,7 @@
         border-bottom: solid #C1C9D5 1px;
       }
     }
-    border: solid #C1C9D5 1px;
+
     .fc-resource-area {
       &.ui-widget-content {
         border-color: #C1C9D5;
@@ -334,6 +338,7 @@
         border-bottom: solid #C1C9D5 1px;
       }
     }
+
     .fc-bg {
       .fc-slats {
         tr {
@@ -348,20 +353,17 @@
     }
   }
 
-  .fc-scroller::-webkit-scrollbar-track
-  {
+  .fc-scroller::-webkit-scrollbar-track {
     border-radius: 3px;
     background-color: #fff;
   }
 
-  .fc-scroller::-webkit-scrollbar
-  {
+  .fc-scroller::-webkit-scrollbar {
     width: 12px;
     background-color: #fff;
   }
 
-  .fc-scroller::-webkit-scrollbar-thumb
-  {
+  .fc-scroller::-webkit-scrollbar-thumb {
     border-radius: 6px;
     background-color: $darkerGrey;
   }
