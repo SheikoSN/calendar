@@ -47,7 +47,7 @@ export class RootComponent implements OnInit, AfterViewInit{
   }
 
   ngAfterViewInit() {
-    this.scheduleConfigService.onCalendarRendered(this.schedule.schedule);
+    this.scheduleConfigService.onCalendarRendered(this.schedule);
   }
 
 
